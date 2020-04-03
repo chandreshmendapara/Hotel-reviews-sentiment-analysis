@@ -18,29 +18,24 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[5]:
 
 
 train = pd.read_csv('Train/twitter_train_AV.csv')
 test = pd.read_csv('Test/twitter_test_AV.csv')
 
 
-# In[6]:
 
-
+#it will display top data of train data set
 train.head()
 
 
-# In[7]:
 
-
+#it will display top data of test data set
 test.head()
 
 
-# In[8]:
+#user define methode to remove unnecessary words from reviews.
 
-
-# user defined method to remove unwanted pattern in our tweets. takes two arguments one is original text and other is pattern we dont want.
 def remove_pattern(input_txt, pattern):
     r = re.findall(pattern, input_txt)
     for i in r:
@@ -49,28 +44,19 @@ def remove_pattern(input_txt, pattern):
     return input_txt
 
 
-# In[9]:
 
 
-# remove twitter handles (@user)
-train['tweet'] = np.vectorize(remove_pattern)(train['tweet'], "@[\w]*")
-
-test['tweet'] = np.vectorize(remove_pattern)(test['tweet'], "@[\w]*")
 
 
-# In[10]:
+
 
 
 train.head()
 
 
-# In[11]:
-
 
 test.head()
 
-
-# In[12]:
 
 
 # remove special characters, numbers, punctuations

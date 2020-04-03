@@ -1,25 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-5+3
-
-
-# In[1]:
 
 
 import simplejson as json
 from matplotlib import pyplot as plt 
 from langdetect import detect
 import re
-import pandas as pd 
-import numpy as np 
 import seaborn as sns
 import string
 import nltk
-import warnings 
+import warnings
+import pandas as pd
+import numpy as np
+
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
@@ -44,11 +38,6 @@ hotels.reset_index(drop=True)
 # In[53]:
 
 
-#hotels['tidy_tweet'] = hotels['reviews.text'].str.replace("[^a-zA-Z#]", " ")
-#hotels.head(100)
-
-
-# In[25]:
 
 
 hotels=hotels.dropna()
@@ -61,11 +50,7 @@ hotels['tidy_tweet'] = hotels['reviews.text'].apply(lambda x: ' '.join([w for w 
 hotels.head()
 
 
-# In[4]:
 
-
-#tokenized_tweet = hotels['tidy_tweet'].apply(lambda x: x.split())
-#tokenized_tweet.head()
 l1=[]
 hotels['tokenized_tweet'] = hotels.apply(lambda x: x['tidy_tweet'].split(),axis=1)
 #hotels['tokenized_tweet'] = hotels['tidy_tweet'].apply(lambda x: x.split())
